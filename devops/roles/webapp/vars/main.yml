@@ -1,0 +1,11 @@
+---
+# Vars related to this specific role of deploying an app
+
+app_name: droopy
+repo_url: https://github.com/MihaiTabara/droopy.git
+repo_remote: origin
+repo_version: master
+webapps_dir: /srv/webapps
+wsgi_file: manage.py
+wsgi_callable: app
+nginx_servername: droopy.mtabara.ro
