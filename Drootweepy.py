@@ -25,6 +25,7 @@ Tool to scrap for tweets for a specific user
 """
 
 from __future__ import absolute_import, print_function
+from tweepy.error import TweepError
 import tweepy
 
 __all__ = (
@@ -48,7 +49,10 @@ class Drootweepy(object):
         self.api = tweepy.API(self.auth)
 
     def scrap_user(self, screen_name):
-        ret = self.api.user_timeline(screen_name=screen_name,
-                                     count=1,
-                                     include_rts=1)
+        try:
+            ret = self.api.user_timeline(screen_name=screen_name,
+                                        count=1,
+                                        include_rts=1)
+        except TweepError as e:
+            raise DrootweepyException(e.message)
         return ret
