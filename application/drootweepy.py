@@ -41,8 +41,10 @@ class DrootweepyException(Exception):
 class Drootweepy(object):
     """Create a new Drootweepy instance"""
     def __init__(self, consumer_key, consumer_secret,
-                 access_token, access_token_secret):
+                 access_token, access_token_secret,
+                 no_of_tweets):
 
+        self.no_of_tweets = no_of_tweets
         self.auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         self.auth.secure = True
         self.auth.set_access_token(access_token, access_token_secret)
@@ -51,7 +53,7 @@ class Drootweepy(object):
     def scrap_user(self, screen_name):
         try:
             ret = self.api.user_timeline(screen_name=screen_name,
-                                        count=1,
+                                        count=self.no_of_tweets,
                                         include_rts=1)
         except TweepError as e:
             raise DrootweepyException(e.message)

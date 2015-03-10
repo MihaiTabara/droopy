@@ -1,0 +1,13 @@
+click==3.3
+Flask==0.10.1
+Flask-WTF==0.11
+itsdangerous==0.24
+Jinja2==2.7.3
+MarkupSafe==0.23
+oauthlib==0.7.2
+requests==2.5.3
+requests-oauthlib==0.4.2
+six==1.9.0
+tweepy==3.3.0
+Werkzeug==0.10.1
+WTForms==2.0.2

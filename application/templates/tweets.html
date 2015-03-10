@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Resulting tweets
+{% endblock title %}
+
+{% block content %}
+    <ul>
+        {% for tweet in tweets %}
+            <li>{{ tweet.text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

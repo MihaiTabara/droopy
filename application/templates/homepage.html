@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+    droopy
+{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            <div class="text-left">
+                <h3>Serch for a new username</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="" method="post" name="portal">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group {% if form.screen_name.errors %}has-error{% endif %}">
+                    {{ form.screen_name.label }}{% if form.screen_name.flags.required %}<span style="color:red;">*</span>{% endif %}:
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        {{ form.screen_name(class_="form-control", placeholder="Twitter handler") }}
+                    </div>
+                    {% if form.screen_name.errors %}
+                        <div class="text-danger"><small>{{ form.screen_name.errors[0] }}</small></div>
+                    {% endif %}
+                </div>
+
+                <div class="form-group {% if form.no_of_tweets.errors %}has-error{% endif %}">
+                    {{ form.no_of_tweets.label }}{% if form.no_of_tweets.flags.required %}<span style="color:red;">*</span>{% endif %}:
+                    <div class="input-group input-group">
+                        <span class="input-group-addon" id="basic-addon1">#</span>
+                        {{ form.no_of_tweets(class_="form-control") }}
+                    </div>
+                    {% if form.no_of_tweets.errors %}
+                        <div class="text-danger"><small>{{ form.no_of_tweets.errors[0] }}</small></div>
+                    {% endif %}
+                </div>
+
+                {{ form.submit(class_="btn btn-primary") }}
+            </form>
+        </div>
+    </div>
+{% endblock content %}
